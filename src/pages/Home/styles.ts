@@ -5,7 +5,7 @@ export const HomeStyled = styled.div`
   height: 100vh;
 
   background: ${({ theme }) => theme.colors.primary};
-  background-image: url("./public/Background.png");
+  background-image: url("src/assets/Background.png");
   background-position: center;
   background-size: cover;
 `;
