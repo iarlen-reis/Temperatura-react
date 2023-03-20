@@ -10,17 +10,16 @@ import {
   InfoDayContainer,
 } from "./styles";
 
-import { TemperatureProps } from "../../types/temperature";
-
 import WeatherImage from "/public/weather.png";
 import PinImage from "/public/point.png";
 import WindImage from "/public/wind.png";
 import RainyImage from "/public/rainy.png";
 import CloudRainImage from "/public/cloudRain.png";
+import { IProps } from "../../types/temperature";
 
-const Temperature = (props: TemperatureProps) => {
+const Temperature = (props: IProps) => {
   return (
-    <MainContainer error={props.error}>
+    <MainContainer>
       <ImageMain src={WeatherImage} alt="imagem da nuvem" />
       <HeaderContainer>
         <p>

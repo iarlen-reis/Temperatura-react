@@ -4,10 +4,7 @@ interface IMainContainer {
   error: boolean;
 }
 
-export const MainContainer =
-  styled.main <
-  IMainContainer >
-  `
+export const MainContainer = styled.main`
   max-width: 48rem;
   max-height: 48rem;
   height: 100%;
@@ -24,8 +21,6 @@ export const MainContainer =
   background-size: cover;
 
   border-radius: 0.5rem;
-  
-    border: ${(props) => (props.error ? "1px solid red" : "none")} ;
 `;
 
 export const ImageMain = styled.img`

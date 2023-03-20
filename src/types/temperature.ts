@@ -1,5 +1,4 @@
-export interface TemperatureProps {
-  error: boolean;
+export interface IProps {
   location: {
     name: string,
     region: string,

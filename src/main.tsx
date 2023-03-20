@@ -9,11 +9,15 @@ import { ThemeProvider } from 'styled-components'
 
 import { router } from './routes/routes'
 
+import { FetchProvider } from './contexts/fetchContext'
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <GlboalStyled />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <FetchProvider>
+        <ThemeProvider theme={Theme}>
+            <GlboalStyled />
+            <RouterProvider router={router} />
+        </ThemeProvider>
+    </FetchProvider>
   </React.StrictMode>
 )
