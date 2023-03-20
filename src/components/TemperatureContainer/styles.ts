@@ -19,7 +19,7 @@ export const MainContainer =
 
   padding: 1rem;
 
-  background-image: url("src/assets/TemperatureNow.png");
+  background-image: url("https://files.fm/thumb_show.php?i=9ab5reh6c");
   background-position: center;
   background-size: cover;
 
