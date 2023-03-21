@@ -20,7 +20,7 @@ const initialState = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchData: () => {},
   data: TemperatureMocks,
-  loading: true,
+  loading: false,
   error: false,
 };
 

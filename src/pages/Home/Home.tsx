@@ -9,7 +9,7 @@ import Temperature from "../../components/TemperatureContainer/Temperature";
 const Home = () => {
   const [search, setSearch] = useState("");
 
-  const { fetchData } = useContext(FetchContext);
+  const { fetchData, loading } = useContext(FetchContext);
 
   const randleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -29,7 +29,13 @@ const Home = () => {
             onChange={(event) => setSearch(event.target.value)}
             value={search}
           />
-          <button type="submit">Procurar</button>
+          {loading ? (
+            <button type="submit" disabled>
+              Aguarde...
+            </button>
+          ) : (
+            <button type="submit">Procurar</button>
+          )}
         </FormStyled>
         <Temperature />
       </HomeContainerStyled>
