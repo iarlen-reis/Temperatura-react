@@ -4,7 +4,10 @@ interface IMainContainer {
   error: boolean;
 }
 
-export const MainContainer = styled.main`
+export const MainContainer =
+  styled.main <
+  IMainContainer >
+  `
   max-width: 48rem;
   max-height: 48rem;
   height: 100%;
@@ -19,6 +22,11 @@ export const MainContainer = styled.main`
   background-image: url("https://files.fm/thumb_show.php?i=9ab5reh6c");
   background-position: center;
   background-size: cover;
+
+  border: ${(props) => (props.error ? "1px solid red" : "none")};
+
+  box-shadow: ${(props) =>
+    props.error ? "rgba(255, 0, 0, 0.35) 0px 5px 15px" : "none"};
 
   border-radius: 0.5rem;
 `;

@@ -27,7 +27,14 @@ export const HomeContainerStyled = styled.div`
   }
 `;
 
-export const FormStyled = styled.form`
+interface IFormProps {
+  error: boolean;
+}
+
+export const FormStyled =
+  styled.form <
+  IFormProps >
+  `
   display: flex;
   column-gap: 1rem;
 
@@ -39,8 +46,11 @@ export const FormStyled = styled.form`
 
     outline: none;
 
-    border: none;
+    border: ${(props) => (props.error ? "1px solid red" : "none")};
     border-radius: 0.4rem;
+    
+    box-shadow: ${(props) =>
+      props.error ? "rgba(255, 0, 0, 0.35) 0px 5px 15px" : "none"};
   }
 
   button {
@@ -51,8 +61,11 @@ export const FormStyled = styled.form`
     font-size: 1.3rem;
     font-weight: 600;
 
-    border: none;
+    border: ${(props) => (props.error ? "1px solid red" : "none")};
     border-radius: 0.4rem;
+
+    box-shadow: ${(props) =>
+      props.error ? "rgba(255, 0, 0, 0.35) 0px 5px 15px" : "none"};
 
     cursor: pointer;
     transition: 0.7s;

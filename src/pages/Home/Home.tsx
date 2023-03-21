@@ -9,7 +9,7 @@ import Temperature from "../../components/TemperatureContainer/Temperature";
 const Home = () => {
   const [search, setSearch] = useState("");
 
-  const { fetchData, loading } = useContext(FetchContext);
+  const { fetchData, loading, error } = useContext(FetchContext);
 
   const randleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <HomeStyled>
       <HomeContainerStyled>
-        <FormStyled onSubmit={randleSubmit}>
+        <FormStyled onSubmit={randleSubmit} error={error}>
           <input
             type="text"
             placeholder="Digite um Páis, Estado, Cidade ou Bairro"

@@ -33,6 +33,8 @@ export const FetchProvider = ({ children }: FetchContextProps) => {
 
   const fetchData = async (search: string): Promise<void> => {
     try {
+      setError(false);
+
       setLoading(true);
 
       const response = await FetchAPI.get(`${search}&days=1&aqi=no&alerts=no`);
