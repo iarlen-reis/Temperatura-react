@@ -1,8 +1,9 @@
 import React, { useState, createContext, ReactNode } from "react";
 
-import axios from "axios";
 import { TemperatureMocks } from "../mocks/Temperature";
 import { IProps } from "../types/temperature";
+
+import { FetchAPI } from "../services/api";
 
 interface FetchContextProps {
   children: ReactNode;
@@ -30,25 +31,23 @@ export const FetchProvider = ({ children }: FetchContextProps) => {
   const [loading, setLoading] = useState(initialState.loading);
   const [error, setError] = useState(false);
 
-  const fetchData = (search: string): void => {
-    axios
-      .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${
-          import.meta.env.VITE_KEY
-        }&q=${search}&days=1&aqi=no&alerts=no`,
-      )
-      .then((res) => {
-        setData(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-        setError(true);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  const fetchData = async (search: string): Promise<void> => {
+    try {
+      setLoading(true);
+
+      const response = await FetchAPI.get(`${search}&days=1&aqi=no&alerts=no`);
+
+      const responseData = await response.data;
+
+      setData(responseData);
+
+      setLoading(false);
+    } catch (error) {
+      setError(true);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
